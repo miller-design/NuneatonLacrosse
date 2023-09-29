@@ -8,14 +8,11 @@
 	@param intrinisic: boolean (help eliminate content reflow when images load in by creating a placeholder div)
 
 */
-//import next components
+
 import Image from 'next/image'
-// importing component styles
-import styles from './SixLazyImage.module.scss'
-// import helper
+import styles from './LazyImage.module.scss'
 import { createImageSrcSizes } from '@/../utils'
 
-// defining prop types
 type imgProps = {
 	image: {
 		src: string
@@ -29,7 +26,6 @@ type imgProps = {
 	intrinsic?: boolean
 }
 
-// get the image ratio to allow us to prevent any lcs issues
 const getImageRatio = (width: number, height: number) => {
 	for (let num = height; num > 1; num--) {
 		if (width % num == 0 && height % num == 0) {
@@ -41,12 +37,10 @@ const getImageRatio = (width: number, height: number) => {
 	return ratio
 }
 
-// get fallback value for older browsers that dont support aspect ratio
 const getRatioFallback = (width: number, height: number) => {
 	return (height / width) * 100 + `%`
 }
 
-// setting type for component as well as assigning props
 const SixLazyImage: React.FC<imgProps> = ({
 	image,
 	width,
@@ -56,11 +50,9 @@ const SixLazyImage: React.FC<imgProps> = ({
 	q = 95,
 	intrinsic = true
 }) => {
-	// create a readable sizes string
+
 	const imgSizes = createImageSrcSizes(sizes)
-	// get image ratio, this is used for preventing background layout shift
 	const imgRatio = getImageRatio(width, height)
-	// fallback value that is used incase aspect ratio is not supported
 	const ratioFallback = getRatioFallback(width, height)
 
 	if (intrinsic) {
