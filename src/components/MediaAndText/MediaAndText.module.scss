@@ -1,0 +1,66 @@
+.container {
+	grid-column: full;
+	position: relative;
+
+	@include site-spacing;
+	@include grid;
+
+	> div {
+		position: relative;
+
+		&:first-of-type,
+		&:last-of-type {
+
+			@include media('>=medium') {
+				grid-row: 1;
+			}
+		}
+
+		// text blok
+		&:first-of-type {
+			grid-column: content;
+
+			@include media('>=small') {
+				grid-column: content / span 9;
+			}
+
+			@include media('<medium') {
+				grid-row: 2;
+
+				@include v-spacing(margin-top, 35px, 75px);
+			}
+
+			@include media('>=medium') {
+				grid-column: span 5 / content;
+
+				@include v-spacing(padding-top, 35px, 75px);
+			}
+		}
+
+		// media blok
+		&:last-of-type {
+			grid-column: content;
+
+			@include media('>=medium') {
+				grid-column: content / span 6;
+			}
+		}
+	}
+
+	h3 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.flipped {
+	direction: rtl;
+
+	> div {
+		direction: ltr;
+	}
+}

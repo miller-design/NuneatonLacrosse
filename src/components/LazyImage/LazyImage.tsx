@@ -41,7 +41,7 @@ const getRatioFallback = (width: number, height: number) => {
 	return (height / width) * 100 + `%`
 }
 
-const SixLazyImage: React.FC<imgProps> = ({
+const LazyImage: React.FC<imgProps> = ({
 	image,
 	width,
 	height,
@@ -92,5 +92,5 @@ const SixLazyImage: React.FC<imgProps> = ({
 	}
 }
 
-export { SixLazyImage }
+export { LazyImage }
 export type { imgProps }

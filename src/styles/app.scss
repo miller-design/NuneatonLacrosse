@@ -9,3 +9,20 @@
 
 // page specific styles
 // @import 'pages/home';
+
+// added for the footer reveal effect
+body {
+	background-color: $c-light-grey;
+
+	@include v-spacing(margin-bottom, 420px, 300px);
+
+	@include media(">=small") {
+		@include v-spacing(margin-bottom, 320px, 300px);
+	}
+
+	main {
+		background-color: $c-light-grey;
+		position: relative;
+		z-index: +1;
+	}
+}

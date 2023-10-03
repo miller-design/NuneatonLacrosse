@@ -13,3 +13,16 @@
 	@include momentum;
 	@include v-type(30px, 60px, 60px);
 }
+
+@mixin Link($dark_mode: false) {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+
+	@if $dark_mode {
+		color: $c-white;
+	} @else {
+		color: $c-black;
+	}
+
+	@include fade-hover;
+}

@@ -3,10 +3,10 @@
   some predefined mixins to help structure pages, layouts & components.
 */
 
-@mixin grid($columns: var(--six-cols)) {
+@mixin grid($columns: var(--css-cols)) {
 	display: grid;
 	box-sizing: border-box;
-	column-gap: var(--six-gutter);
+	column-gap: var(--css-gutter);
 
 	/*
     grid for screens larger than site max width, includes extra cols added
@@ -15,19 +15,19 @@
   */
 	@include media('>sitewidth') {
 		--max-grid: calc(
-			var(--six-site-max-width) / 2 + var(--six-site-margin) + var(--six-gutter) *
+			var(--css-site-max-width) / 2 + var(--css-site-margin) + var(--css-gutter) *
 				2
 		);
 
 		grid-template-columns:
 			[full-start]
-			var(--six-site-margin)
+			var(--css-site-margin)
 			calc(50vw - var(--max-grid)) // add max width constraint
 			[content-start]
 			repeat($columns, 1fr)
 			[content-end]
 			calc(50vw - var(--max-grid)) // add max width constraint
-			var(--six-site-margin)
+			var(--css-site-margin)
 			[full-end];
 	}
 
@@ -38,7 +38,7 @@
   */
 	@include media('<sitewidth') {
 		// we need smaller page margins because of the extra empty 'column-gap'
-		--col-spacer: calc(var(--six-site-margin) - var(--six-gutter));
+		--col-spacer: calc(var(--css-site-margin) - var(--css-gutter));
 
 		grid-template-columns:
 			[full-start]
@@ -66,7 +66,7 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: var(--six-site-max-width);
+	max-width: var(--css-site-max-width);
 
 	@if $add_padding == true {
 		@include site-padding;
@@ -81,7 +81,7 @@
 
 @mixin site-padding() {
 	@include media('<sitewidth') {
-		padding-left: var(--six-site-margin);
-		padding-right: var(--six-site-margin);
+		padding-left: var(--css-site-margin);
+		padding-right: var(--css-site-margin);
 	}
 }

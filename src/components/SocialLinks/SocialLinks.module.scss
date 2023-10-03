@@ -1,0 +1,27 @@
+.container {
+
+	ul {
+		display: flex;
+		column-gap: 10px;
+
+		a {
+			@include Link;
+		}
+	}
+}
+
+.long_format {
+
+	ul {
+		flex-direction: column;
+		column-gap: unset;
+		row-gap: 5px;
+	}
+}
+
+.dark_mode {
+
+	ul a {
+		color: $c-white;
+	}
+}

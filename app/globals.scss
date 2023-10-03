@@ -1,8 +1,8 @@
 @import '../src/styles/app.scss';
 
 :root {
-	--six-pen-colour: #{$c-black};
-	--six-paper-colour: #{$c-white};
+	--pen-colour: #{$c-black};
+	--paper-colour: #{$c-white};
 
 	@each $breakpoint-key, $breakpoint-var in $breakpoints {
 		@include get-var-loop('#{$breakpoint-key}');

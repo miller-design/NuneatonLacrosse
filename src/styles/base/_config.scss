@@ -1,7 +1,7 @@
 /*
   Global Variables - available in SCSS and CSS
   In SCSS use function to get value e.g. get-scss-variable("cols","medium")
-  or better still use the css var version. e.g. var(--six-cols)
+  or better still use the css var version. e.g. var(--css-cols)
 */
 
 $css-variables: (
@@ -47,6 +47,7 @@ $breakpoints: (
 
 $c-black: #1f1f1f;
 $c-white: #fff;
+$c-light-grey: #e5e5e5;
 $c-grey: #8e8e8e;
 $c-red: #d60326;
 $c-green: #00a239;

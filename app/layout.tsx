@@ -1,11 +1,7 @@
 import './globals.scss'
-import type { Metadata } from 'next'
 import { momentum, inter } from './../lib/fonts'
-
-export const metadata: Metadata = {
-  title: 'Boilerplate',
-  description: 'Boilerplate description field',
-}
+import { Header } from '@/components/Header/Header'
+import { Footer } from '@/components/Footer/Footer'
 
 export default function RootLayout({
   children,
@@ -14,7 +10,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${momentum.variable} ${inter.variable}`}>{children}</body>
+      <body className={`${momentum.variable} ${inter.variable}`}>
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   )
 }

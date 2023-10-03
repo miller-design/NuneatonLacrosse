@@ -122,7 +122,7 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 	@each $six-key, $six-top-level in $scss_var {
 		@each $six-child-key, $six-value in $six-top-level {
 			@if $six-child-key == $value {
-				--six-#{$six-key}: #{get-scss-variable(
+				--css-#{$six-key}: #{get-scss-variable(
 						#{$six-key},
 						$size: #{$six-child-key}
 					)};
@@ -197,5 +197,13 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 		&:hover {
 			@content;
 		}
+	}
+}
+
+@mixin fade-hover {
+	transition: opacity 400ms $standard-ease;
+
+	@include hover {
+		opacity: 0.4;
 	}
 }
